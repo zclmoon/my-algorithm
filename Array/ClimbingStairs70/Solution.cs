@@ -48,6 +48,11 @@ namespace ClimbingStairs70
             return result;
         }
 
+        /// <summary>
+        /// Solution #3: interation
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
         public int ClimbStairs(int n) 
         {
             if(n <= 3) return n;
