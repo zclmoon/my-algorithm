@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CoderCMS.Alogrithm.Common\CoderCMS.Alogrithm.Common.csproj" />
+    <ProjectReference Include="..\..\CoderCMS.Alogrithm.Common\CoderCMS.Alogrithm.Common.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
