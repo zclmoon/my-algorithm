@@ -1,25 +1,32 @@
 using CoderCMS.Alogrithm.Common;
 
-namespace ReverserFullLinkedList206
+namespace ReverserLinkedListTopN
 {
-    /// <summary>
-    /// 206. Reverse Linked List: https://leetcode.com/problems/reverse-linked-list/
-    /// </summary>
     public class Solution
     {
+        ListNode lastNodesNext = null;
+
         /// <summary>
         /// Solution #1: Recursive.
         /// </summary>
         /// <param name="head"></param>
         /// <returns></returns>
-        public ListNode ReverseList(ListNode head) 
+        public ListNode ReverseN(ListNode head, int n) 
         {
-            if(head == null || head.next == null) return head;
+            if(head == null) return head;
 
-            ListNode last = ReverseList(head.next);
+            if (head.next == null || n == 1)
+            {
+                // Record last node's next node. (the n+1 node)
+                lastNodesNext = head.next;
+
+                return head;
+            }
+
+            ListNode last = ReverseN(head.next, n - 1);
 
             head.next.next = head;
-            head.next = null;
+            head.next = lastNodesNext;
 
             return last;
         }
@@ -29,12 +36,12 @@ namespace ReverserFullLinkedList206
         /// </summary>
         /// <param name="head"></param>
         /// <returns></returns>
-        public ListNode ReverseListTwo(ListNode head)
+        public ListNode ReverseNTwo(ListNode head, int n)
         {
             ListNode current = head;
             ListNode prev = null;
 
-            while (current != null)
+            while (current != null && n > 0)
             {
                 (current.next, prev, current) = (prev, current, current.next);
 
@@ -44,6 +51,13 @@ namespace ReverserFullLinkedList206
                 // current.next = prev;
                 // prev = tmpCurrent;
                 // current = tmpNext;
+
+                if (n == 1) 
+                {
+                    head.next = current;
+                }
+
+                n--;
             }
 
             return prev;
