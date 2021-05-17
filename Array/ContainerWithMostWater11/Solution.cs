@@ -75,6 +75,7 @@ namespace ContainerWithMostWater11
             while (left < right)
             {
                 maxArea = Math.Max(maxArea, Math.Min(height[left], height[right]) * (right - left));
+                
                 var _ = height[left] > height[right] ? right-- : left++;
             }
 
