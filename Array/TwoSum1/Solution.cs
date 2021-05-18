@@ -15,6 +15,7 @@ namespace TwoSum1
         /// <summary>
         /// Solution #1: tow interation
         /// Time Complexity: O(n²)
+        /// Space Complexity: O(1)
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="target"></param>
@@ -38,6 +39,7 @@ namespace TwoSum1
         /// <summary>
         /// Solution #2: Hash Table / Dictionary, only one interation.
         /// Time Complexity: O(n)
+        /// Space Complexity: O(n)
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="target"></param>
