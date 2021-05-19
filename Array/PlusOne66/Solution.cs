@@ -62,5 +62,27 @@ namespace PlusOne66
 
             return result;
         }
+
+        /// <summary>
+        /// Almost same with above solutions.
+        /// </summary>
+        /// <param name="digits"></param>
+        /// <returns></returns>
+        public int[] PlusOneSolutionThree(int[] digits)
+        {
+            for (int i = digits.Length - 1; i >= 0; i--)
+            {
+                digits[i]++;
+                digits[i] = digits[i] % 10;
+
+                if (digits[i] != 0) return digits;
+            }
+
+            // case 9999999
+            digits = new int[digits.Length + 1];
+            digits[0] = 1;
+
+            return digits;
+        }
     }
 }
