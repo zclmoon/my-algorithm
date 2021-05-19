@@ -73,5 +73,43 @@ namespace MergeSortedArray88
             }
 
         }
+
+        /// <summary>
+        /// In case nums1.length > m + n
+        /// </summary>
+        /// <param name="nums1"></param>
+        /// <param name="m"></param>
+        /// <param name="nums2"></param>
+        /// <param name="n"></param>
+        public void MergeThree(int[] nums1, int m, int[] nums2, int n)
+        {
+            int[] newArr = new int[m + n];
+
+            int i = 0;
+            int j = 0;
+            int k = 0;
+
+            while (i < m && j < n)
+            {
+                if (nums1[i] < nums2[j])
+                {
+                    newArr[k++] = nums1[i++];
+                }
+                else
+                {
+                    newArr[k++] = nums2[j++];
+                }
+            }
+
+            while (i < m) newArr[k++] = nums1[i++];
+
+            while (j < n) newArr[k++] = nums2[j++];
+
+            // assign to nums1
+            for (int idx = 0; idx < newArr.Length; idx++)
+            {
+                nums1[idx] = newArr[idx];
+            }
+        }
     }
 }

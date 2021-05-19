@@ -15,7 +15,7 @@ namespace MergeSortedArray88
             ArrayUtil.PrintIntArray(nums2);
 
             Solution solution = new Solution();
-            solution.MergeTwo(nums1, 2, nums2, 2);
+            solution.MergeThree(nums1, 2, nums2, 2);
 
             Console.WriteLine("Output:");
             ArrayUtil.PrintIntArray(nums1);
