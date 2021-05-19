@@ -8,7 +8,7 @@ namespace ClimbingStairs70
     public class Solution
     {
         /// <summary>
-        /// Solution #1: recursive without cache.
+        /// Solution #1: Brute Force: recursive without cache.
         /// This is got "Time Limit Exceeded" in leetcode.
         /// </summary>
         /// <param name="n"></param>
@@ -49,7 +49,7 @@ namespace ClimbingStairs70
         }
 
         /// <summary>
-        /// Solution #3: interation
+        /// Solution #3: Fibonacci Number
         /// </summary>
         /// <param name="n"></param>
         /// <returns></returns>
@@ -69,6 +69,28 @@ namespace ClimbingStairs70
             }
 
             return f3;
+        }
+
+        /// <summary>
+        /// Solution #4: Dynamic Programming: dp[i]=dp[i−1]+dp[i−2]
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        public int ClimbStairDp(int n)
+        {
+            if(n <= 3) return n;
+
+            int[] dp = new int[n + 1];
+
+            dp[1] = 1;
+            dp[2] = 2;
+
+            for (int i = 3; i <= n; i++)
+            {
+                dp[i] = dp[i - 1] + dp[i - 2];
+            }
+
+            return dp[n];
         }
     }
 }

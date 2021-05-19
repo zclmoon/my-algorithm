@@ -7,7 +7,7 @@ namespace ClimbingStairs70
         static void Main(string[] args)
         {
             Solution solution = new Solution();
-            int result = solution.ClimbStairs(5);
+            int result = solution.ClimbStairDp(8);
 
             Console.WriteLine($"{result}");
         }
