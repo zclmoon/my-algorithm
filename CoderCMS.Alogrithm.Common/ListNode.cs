@@ -11,5 +11,6 @@ namespace CoderCMS.Alogrithm.Common
         }
         public int val;
         public ListNode next;
+        public ListNode prev;
     }
 }
