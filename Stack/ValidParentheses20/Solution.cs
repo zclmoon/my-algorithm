@@ -70,31 +70,56 @@ namespace ValidParentheses20
 
             Stack<char> stack = new Stack<char>();
 
-            IDictionary<char, char> map = new Dictionary<char, char>()
+            foreach(char c in s)
             {
-                {']','['},
-                {')', '('},
-                {'}', '{'},
-            };
-
-            foreach (char c in s)
-            {
-                switch(c)
+                if(c == '{')
                 {
-                    case '[':
-                    case '(':
-                    case '{':
-                        stack.Push(c);
-                        break;
-                    case ']':
-                    case '}':
-                    case ')':
-                        if(stack.Count == 0 || stack.Pop() != map[c]) return false;
-                        break;
+                    stack.Push('}');
+                }
+                else if(c == '[')
+                {
+                    stack.Push(']');
+                }
+                else if(c == '(')
+                {
+                    stack.Push(')');
+                }
+                else if( stack.Count == 0 || stack.Pop() != c)
+                {
+                    return false;
                 }
             }
 
             return stack.Count == 0 ? true : false;
+        }
+
+        public bool IsValidFour(string s)
+        {
+            char[] stack = new char[s.Length];
+            int head = 0;
+
+            foreach(char c in s)
+            {
+                switch(c)
+                {
+                    case '{':
+                    case '(':
+                    case '[':
+                        stack[head++] = c;
+                        break;
+                    case '}':
+                        if(head == 0 || stack[--head] != '{') return false;
+                        break;
+                    case ']':
+                        if(head == 0 || stack[--head] != '[') return false;
+                        break;
+                    case ')':
+                        if(head == 0 || stack[--head] != '(') return false;
+                        break;
+                }
+            }
+
+            return head == 0;
         }
     }
 }

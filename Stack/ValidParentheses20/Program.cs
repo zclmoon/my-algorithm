@@ -12,7 +12,7 @@ namespace ValidParentheses20
             Console.WriteLine($"Input: {input}");
 
             Solution solution = new Solution();
-            var result = solution.IsValidThree(input);
+            var result = solution.IsValidFour(input);
 
             Console.WriteLine($"Output: {result}");
         }
