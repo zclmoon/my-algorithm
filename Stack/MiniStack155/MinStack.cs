@@ -2,6 +2,9 @@ using System;
 
 namespace MiniStack155
 {
+    /// <summary>
+    /// 155. Min Stack: https://leetcode.com/problems/min-stack/
+    /// </summary>
     public class MinStack
     {
         Node head = null;

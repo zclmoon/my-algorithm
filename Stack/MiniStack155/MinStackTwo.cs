@@ -4,6 +4,9 @@ using System;
 
 namespace MiniStack155
 {
+    /// <summary>
+    /// 155. Min Stack: https://leetcode.com/problems/min-stack/
+    /// </summary>
     public class MinStackTwo
     {
         int min = int.MaxValue;
@@ -27,7 +30,7 @@ namespace MiniStack155
 
         public void Pop()
         {
-            if(stack.Peek() == min)
+            if (stack.Peek() == min)
             {
                 stack.Pop();
                 min = stack.Pop();
@@ -40,7 +43,7 @@ namespace MiniStack155
 
         public int Top()
         {
-           return stack.Peek();
+            return stack.Peek();
         }
 
         public int GetMin()
