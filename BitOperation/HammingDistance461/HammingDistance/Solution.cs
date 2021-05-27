@@ -72,7 +72,7 @@ namespace HammingDistance
             while (n > 0)
             {
                 count++;
-                
+
                 n &= n - 1; // Brian Kernighan algorithm: remove the rightmost 1.
             }
 
@@ -101,12 +101,12 @@ namespace HammingDistance
             return count;
         }
 
-/// <summary>
-/// 
-/// </summary>
-/// <param name="x"></param>
-/// <param name="y"></param>
-/// <returns></returns>
+        /// <summary>
+        /// n & (~n + 1): 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public int HammingDistanceFour(int x, int y)
         {
             int count = 0;
