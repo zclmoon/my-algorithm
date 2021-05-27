@@ -10,6 +10,12 @@ namespace HammingDistance
     /// </summary>
     public class Solution
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public int HammingDistanceTwo(int x, int y)
         {
             string xBinaryStr = Convert.ToString(x, 2);
@@ -45,10 +51,12 @@ namespace HammingDistance
         }
 
         /// <summary>
-        /// x: 1001
-        /// y: 0010
-        /// => n = x ^ y = 1010
-        /// Count how may 1 in n binary => n &= n - 1 until n is 0.
+        /// 1. XOR
+        ///     x: 1001
+        ///     y: 0010
+        ///     => n = x ^ y = 1010
+        /// 2. Count the number of set bits.
+        ///     n &= n - 1 until n is 0.
         /// </summary>
         /// <param name="x"></param>
         /// <param name="y"></param>
@@ -56,13 +64,59 @@ namespace HammingDistance
         public int HammingDistance(int x, int y)
         {
             int count = 0;
+
+            // XOR
             int n = x ^ y;
 
+            // count the number of set bits.
             while (n > 0)
             {
                 count++;
                 
-                n &= n - 1;
+                n &= n - 1; // Brian Kernighan algorithm: remove the rightmost 1.
+            }
+
+            return count;
+        }
+
+
+        /// <summary>
+        /// 1. Calculate the XOR of two numbers.
+        /// 2. Count the number of set bits.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        public int HammingDistanceThree(int x, int y)
+        {
+            int count = 0;
+            int n = x ^ y;
+
+            while (n > 0)
+            {
+                count += n & 1;
+                n >>= 1;
+            }
+
+            return count;
+        }
+
+/// <summary>
+/// 
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
+/// <returns></returns>
+        public int HammingDistanceFour(int x, int y)
+        {
+            int count = 0;
+
+            int n = x ^ y;
+
+            while (n > 0)
+            {
+                n -= n & (~n + 1);
+                count++;
             }
 
             return count;
